@@ -27,7 +27,7 @@ public class InstructorProfile {
 	@Column(name="channel", length=50)
 	private String channel;
 	//create relationship with instructor one to one
-	@OneToOne(cascade=CascadeType.ALL)
+	@OneToOne(cascade= {CascadeType.PERSIST, CascadeType.MERGE, CascadeType.DETACH, CascadeType.REFRESH})
 	@JoinColumn(name="instructor_id")
 	private Instructor instructor;
 	
@@ -40,6 +40,7 @@ public class InstructorProfile {
 		this.instructor=null;
 	}
 
+	
 	public InstructorProfile(String quanlification, String exp, String channel, Instructor instructor) {
 		super();
 		this.quanlification = quanlification;
@@ -47,6 +48,8 @@ public class InstructorProfile {
 		this.channel = channel;
 		this.instructor = instructor;
 	}
+
+
 	//getter and setter method
 
 	public int getProfileId() {
@@ -90,9 +93,10 @@ public class InstructorProfile {
 	}
 	//toString() method
 
-	@Override
+
+	@Override // only read the other object once, either in the parent class or child class
 	public String toString() {
 		return "InstructorProfile [profileId=" + profileId + ", quanlification=" + quanlification + ", exp=" + exp
-				+ ", channel=" + channel + ", instructor=" + instructor + "]";
+				+ ", channel=" + channel + "]";
 	}
 }

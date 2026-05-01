@@ -3,6 +3,11 @@ package com.code.hb;
 import org.hibernate.SessionFactory;
 import org.hibernate.cfg.Configuration;
 
+import com.code.hb.demo.CreateCourse;
+import com.code.hb.demo.CreateInstructor;
+import com.code.hb.demo.DeleteInstructor;
+import com.code.hb.demo.ReadInstructor;
+import com.code.hb.demo.UpdateInstructor;
 import com.code.hb.entity.Course;
 import com.code.hb.entity.Instructor;
 import com.code.hb.entity.InstructorProfile;
@@ -32,5 +37,12 @@ public class App
     			.addAnnotatedClass(Course.class)
     			.addAnnotatedClass(Student.class)
     			.buildSessionFactory();
+    	
+    	//create the object of createInstructor
+    	//new CreateInstructor(sessionFactory);
+    	//new ReadInstructor(sessionFactory);
+    	//new UpdateInstructor(sessionFactory);
+    	//new DeleteInstructor(sessionFactory);
+    	//new CreateCourse(sessionFactory);
     }
 }

@@ -1,10 +1,13 @@
 package com.code.hb.entity;
 
+import javax.persistence.CascadeType;
 import javax.persistence.Column;
 import javax.persistence.Entity;
+import javax.persistence.FetchType;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
+import javax.persistence.OneToOne;
 import javax.persistence.Table;
 
 @Entity
@@ -23,6 +26,8 @@ public class Instructor {
 	private String lastName;
 	@Column(name="email_id", length=50, nullable=false, unique=true)
 	private String emailId;
+	@OneToOne(mappedBy="instructor", fetch=FetchType.LAZY, cascade=CascadeType.ALL, orphanRemoval=true)
+	private InstructorProfile instructorProfile;
 	
 	// default constructor
 	public Instructor() {
@@ -30,6 +35,7 @@ public class Instructor {
 		this.firstName=null;
 		this.lastName=null;
 		this.emailId=null;
+		this.instructorProfile=null;
 	}
 	// constructor with parameter
 	public Instructor(String firstName, String lastName, String emailId) {
@@ -38,10 +44,12 @@ public class Instructor {
 		this.lastName = lastName;
 		this.emailId = emailId;
 	}
+	
 	// getter and setter methods
 	public int getId() {
 		return id;
 	}
+	
 	public void setId(int id) {
 		this.id = id;
 	}
@@ -63,10 +71,18 @@ public class Instructor {
 	public void setEmailId(String emailId) {
 		this.emailId = emailId;
 	}
+	
+	public InstructorProfile getInstructorProfile() {
+		return instructorProfile;
+	}
+	public void setInstructorProfile(InstructorProfile instructorProfile) {
+		this.instructorProfile = instructorProfile;
+	}
 	//toString() method
 	@Override
 	public String toString() {
 		return "Instructor [id=" + id + ", firstName=" + firstName + ", lastName=" + lastName + ", emailId=" + emailId
-				+ "]";
+				+ ", instructorProfile=" + instructorProfile.toString() + "]";
 	}
+	
 }
