@@ -5,8 +5,10 @@ import org.hibernate.cfg.Configuration;
 
 import com.code.hb.demo.CreateCourse;
 import com.code.hb.demo.CreateInstructor;
+import com.code.hb.demo.CreateStudent;
 import com.code.hb.demo.DeleteInstructor;
 import com.code.hb.demo.ReadInstructor;
+import com.code.hb.demo.ReadStudent;
 import com.code.hb.demo.UpdateInstructor;
 import com.code.hb.entity.Course;
 import com.code.hb.entity.Instructor;
@@ -44,5 +46,7 @@ public class App
     	//new UpdateInstructor(sessionFactory);
     	//new DeleteInstructor(sessionFactory);
     	//new CreateCourse(sessionFactory);
+    	//new CreateStudent(sessionFactory);
+    	//new ReadStudent(sessionFactory);
     }
 }

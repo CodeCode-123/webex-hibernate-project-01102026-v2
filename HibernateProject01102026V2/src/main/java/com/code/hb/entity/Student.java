@@ -36,12 +36,11 @@ public class Student {
 		this.studentId=0;
 	}
 
-	public Student(String firstName, String lastName, String emailId, List<Course> courses) {
+	public Student(String firstName, String lastName, String emailId) {
 		super();
 		this.firstName = firstName;
 		this.lastName = lastName;
 		this.emailId = emailId;
-		this.courses = courses;
 	}
 	
 	// getter and setter
